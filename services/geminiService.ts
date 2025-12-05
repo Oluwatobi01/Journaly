@@ -10,7 +10,7 @@ Use emojis occasionally but don't overdo it.
 Never be judgmental. If the user is in distress, suggest seeking professional help gently.
 `;
 
-export const generateJournalResponse = async (history: { role: string; content: string }[], userMessage: string) => {
+export const generateJournalResponse = async (history: { role: string; content: string }[], userMessage: string): Promise<string> => {
   try {
     const chat = ai.chats.create({
       model: 'gemini-2.5-flash',
@@ -24,7 +24,7 @@ export const generateJournalResponse = async (history: { role: string; content: 
     });
 
     const result = await chat.sendMessage({ message: userMessage });
-    return result.text;
+    return result.text || "I'm listening... 💭";
   } catch (error) {
     console.error("Gemini API Error:", error);
     return "I'm having a little trouble connecting to my thoughts right now. But I'm listening! 💭";
