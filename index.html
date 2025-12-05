@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journaly</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "var(--color-primary)",
+              "primary-dark": "var(--color-primary-dark)",
+              background: "var(--color-background)",
+              surface: "var(--color-surface)",
+              "surface-highlight": "var(--color-surface-highlight)",
+              "text-main": "var(--color-text-main)",
+              "text-muted": "var(--color-text-muted)",
+              "accent-purple": "#9B5DE5",
+              "accent-coral": "#F15BB5",
+              "accent-yellow": "#FEE440",
+            },
+            fontFamily: {
+              sans: ["Spline Sans", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-out forwards",
+              "slide-up": "slideUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards",
+              "float": "float 6s ease-in-out infinite",
+              "pulse-glow": "pulseGlow 3s infinite",
+              "spin-slow": "spin 8s linear infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-15px)" },
+              },
+              pulseGlow: {
+                "0%, 100%": { opacity: "0.5", transform: "scale(1)" },
+                "50%": { opacity: "1", transform: "scale(1.05)" },
+              }
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        /* Default Accent (Neon Teal) */
+        --color-primary: #0ddff2;
+        --color-primary-dark: #0abccb;
+
+        /* Light Mode Defaults */
+        --color-background: #f0f4f8;
+        --color-surface: #ffffff;
+        --color-surface-highlight: #e2e8f0;
+        --color-text-main: #1e293b;
+        --color-text-muted: #64748b;
+      }
+      .dark {
+        /* Dark Mode Defaults */
+        --color-background: #102122;
+        --color-surface: #192d30;
+        --color-surface-highlight: #224649;
+        --color-text-main: #e0e6e6;
+        --color-text-muted: #90c6cb;
+      }
+
+      body {
+        font-family: "Spline Sans", sans-serif;
+        background-color: var(--color-background);
+        color: var(--color-text-main);
+        -webkit-tap-highlight-color: transparent;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      /* Hide scrollbar for clean UI in horizontal lists */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "vite": "https://aistudiocdn.com/vite@^7.2.6"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
