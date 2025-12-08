@@ -546,7 +546,7 @@ const Insights: React.FC<{ entries: JournalEntry[] }> = ({ entries }) => {
         const firstDate = sortedDates[0];
         
         // Fix TS error: ensure firstDate is a number (defined) before arithmetic
-        if (firstDate === undefined) return 0;
+        if (typeof firstDate !== 'number') return 0;
 
         const diff = (todayTime - firstDate) / (1000 * 60 * 60 * 24);
         if (diff > 1.1) return 0; // Using 1.1 to cover "greater than 1 day" roughly
@@ -556,7 +556,7 @@ const Insights: React.FC<{ entries: JournalEntry[] }> = ({ entries }) => {
 
         for (let i = 1; i < sortedDates.length; i++) {
              const prevDate = sortedDates[i];
-             if (prevDate === undefined) continue;
+             if (typeof prevDate !== 'number') continue;
              const diffDays = (currentDate - prevDate) / (1000 * 60 * 60 * 24);
              if (Math.round(diffDays) === 1) {
                  streak++;

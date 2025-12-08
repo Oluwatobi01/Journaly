@@ -8,11 +8,18 @@ Use emojis occasionally but don't overdo it.
 Never be judgmental. If the user is in distress, suggest seeking professional help gently.
 `;
 
+// Hardcoded fallback as a safety net if build injection fails
+const FALLBACK_KEY = "AIzaSyAogVbjVnOxsCSKAFNiGRywN1o6tsUOGF4";
+
 let aiInstance: GoogleGenAI | null = null;
 
 const getAI = (): GoogleGenAI => {
     if (!aiInstance) {
-        aiInstance = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+        const key = process.env.API_KEY || FALLBACK_KEY;
+        if (!key) {
+            console.error("CRITICAL: No API Key found. AI features will fail.");
+        }
+        aiInstance = new GoogleGenAI({ apiKey: key });
     }
     return aiInstance;
 };
