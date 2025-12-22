@@ -172,6 +172,12 @@ const Home: React.FC<{
                     </button>
                 </div>
             </form>
+            <button
+                onClick={() => alert('SOS button clicked!')}
+                className="absolute bottom-28 right-5 w-16 h-16 rounded-full bg-red-500 text-white flex items-center justify-center shadow-lg"
+            >
+                <Icon name="sos" className="text-3xl" />
+            </button>
         </div>
     );
 };
